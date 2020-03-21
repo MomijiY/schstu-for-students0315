@@ -9,12 +9,22 @@
 import UIKit
 import Firebase
 
+var subjects = String()
+var calender = String()
+var studyTime = String()
+var inputamounts = String()
+var inputdescription = String()
+
 class InputRecordTableViewController: UITableViewController {
     
 //  @IBOutlet weak var studyLabel: UILabel!
-    @IBOutlet weak var studyTextField: UITextField!
+    @IBOutlet weak var subjectsTextField: UITextField!
     @IBOutlet weak var calenderTextField: UITextField!
+    @IBOutlet weak var studyTextField: UITextField!
     @IBOutlet weak var AmountsLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    var database: Firestore!
     
     var studyTimePicker: UIDatePicker = UIDatePicker()
     var calenderPicker: UIDatePicker = UIDatePicker()
@@ -40,16 +50,22 @@ class InputRecordTableViewController: UITableViewController {
         toolbar.setItems([spacelItem, doneItem], animated: true)
         
         let ctoolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
-        let cspaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let cspacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let cdoneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(calenderdone))
-        ctoolbar.setItems([cspaceItem, cdoneItem], animated: true)
+        ctoolbar.setItems([cspacelItem, cdoneItem], animated: true)
         
+        subjectsTextField.inputAccessoryView = toolbar
         studyTextField.inputAccessoryView = toolbar
         calenderTextField.inputAccessoryView = ctoolbar
+        descriptionTextView.inputAccessoryView = toolbar
+        
+        configureUI()
     }
 
     @objc func studytimedone() {
+        subjectsTextField.endEditing(true)
         studyTextField.endEditing(true)
+        descriptionTextView.endEditing(true)
         let formatter = DateFormatter()
         formatter.dateFormat = "h時間m分"
         studyTextField.text = "\(formatter.string(from: studyTimePicker.date))"
@@ -58,8 +74,49 @@ class InputRecordTableViewController: UITableViewController {
     @objc func calenderdone() {
         calenderTextField.endEditing(true)
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM月dd日h時間m分"
+        formatter.dateFormat = "M月d日h時m分"
         calenderTextField.text = "\(formatter.string(from: calenderPicker.date))"
+    }
+}
+
+extension InputRecordTableViewController {
+    func saveRecord() {
+        studyTime = studyTextField.text!
+        calender = calenderTextField.text!
+        inputamounts = AmountsLabel.text!
+        subjects = subjectsTextField.text!
+        inputdescription = descriptionTextView.text!
+        
+        UserDefaults.standard.set(subjects, forKey: "subject")
+        UserDefaults.standard.set(studyTime, forKey: "studyTime")
+        UserDefaults.standard.set(calender, forKey: "calender")
+        UserDefaults.standard.set(amounts, forKey: "amounts")
+        UserDefaults.standard.set(inputdescription, forKey: "description")
+        
+        let alert: UIAlertController = UIAlertController(title: "OK", message: "記録の保存が完了しました", preferredStyle: .alert)
+        
+        alert.addAction(
+            UIAlertAction(title: "OK", style: .default, handler: { action in
+                self.performSegue(withIdentifier: "toHome", sender: nil)
+            }
+            )
+        )
+        present(alert, animated: true, completion: nil)
+        let studyData = [
+            "studyTime": studyTextField.text!,
+            "calender": calenderTextField.text!,
+            "description": descriptionTextView.text!,
+            "subject": subjectsTextField.text!
+        ] as [String: Any]
+
+        Firestore.firestore().collection("data").document("example").setData(studyData)
+    }
+}
+
+extension InputRecordTableViewController {
+    private func configureUI() {
+        tableView.delegate = self
+        navigationItem.title = "学習記録"
     }
 }
 
@@ -69,6 +126,14 @@ extension InputRecordTableViewController {
         switch indexPath.row {
         case 3:
             self.performSegue(withIdentifier: "toAmounts", sender: nil)
+        default:
+            break
+        }
+        switch indexPath.section {
+        case 2:
+            saveRecord()
+        case 3:
+            self.performSegue(withIdentifier: "toDetail", sender: nil)
         default:
             break
         }

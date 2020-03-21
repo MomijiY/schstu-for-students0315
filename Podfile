@@ -10,6 +10,9 @@ pod 'Firebase/Database'
 pod 'Firebase/Core'
 pod 'Firebase/Firestore'
 pod 'Firebase/Auth'
+pod 'Firebase/Analytics'
+pod 'BetterSegmentedControl', '~> 1.3'
+pod 'TagListView', '~> 1.0'
   target 'schstu-for-students0315Tests' do
     inherit! :search_paths
     # Pods for testing
