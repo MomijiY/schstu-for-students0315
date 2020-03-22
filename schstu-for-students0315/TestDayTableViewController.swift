@@ -23,12 +23,17 @@ class TestDayTableViewController: UITableViewController {
         } else {
             dateTextField.text = UserDefaults.standard.object(forKey: "dateTextField") as? String
         }
-        if UserDefaults.standard.object(forKey: "dateTextField") as? String == nil {
+        if UserDefaults.standard.object(forKey: "goalTextField1") as? String == nil {
+            goalTextField1.text = ""
+        } else {
+            goalTextField1.text = UserDefaults.standard.object(forKey: "goalTextField1") as! String
+        }
+        if UserDefaults.standard.object(forKey: "goalTextField2") as? String == nil {
             goalTextField2.text = ""
         } else {
-            goalTextField2.text! = UserDefaults.standard.object(forKey: "dateTextField") as! String
+            goalTextField2.text! = UserDefaults.standard.object(forKey: "goalTextField2") as! String
         }
-        if UserDefaults.standard.object(forKey: "dateTextField") as? String == nil {
+        if UserDefaults.standard.object(forKey: "goalTextField3") as? String == nil {
             goalTextField2.text = ""
         } else {
         goalTextField3.text! = UserDefaults.standard.object(forKey: "goalTextField3") as! String

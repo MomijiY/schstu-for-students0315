@@ -35,12 +35,34 @@ class HomeViewController: UITableViewController {
         }
     }
     
+    func showAlert() {
+        let alert = UIAlertController(title: "ログアウト", message: "ログアウトしてもいいですか？", preferredStyle: .alert)
+        let LogoutAction = UIAlertAction(title: "ログアウト", style: .destructive, handler: { (UIAlertAction) in
+                        let FirebaseAuth = Auth.auth()
+            do {
+              try FirebaseAuth.signOut()
+            } catch let signOutError as NSError {
+              print ("Error signing out: %@", signOutError)
+            }
+            self.performSegue(withIdentifier: "toLogin", sender: nil)
+        })
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .default, handler: { (UIAlertAction) in
+            print("「いいえ」が選択されました！")
+        })
+        alert.addAction(LogoutAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension HomeViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.section {
+        case 0:
+            showAlert()
         case 1:
             self.performSegue(withIdentifier: "toInputRecord", sender: nil)
         case 2:

@@ -8,7 +8,7 @@
 
 import UIKit
 import TagListView
-
+import Firebase
 class InputActivityViewController: UIViewController, TagListViewDelegate, UITextFieldDelegate, UIScrollViewDelegate, UITextViewDelegate {
     
     let MARGIN: CGFloat = 10
@@ -114,5 +114,26 @@ class InputActivityViewController: UIViewController, TagListViewDelegate, UIText
         tagListView.frame.size = tagListView.intrinsicContentSize
 
         tagTextField.frame = CGRect(x: MARGIN, y: tagListView.frame.origin.y + tagListView.frame.height + 5, width: view.frame.width-MARGIN*2, height: 40)
+    }
+    
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        
+        let alert: UIAlertController = UIAlertController(title: "OK", message: "記録の保存が完了しました", preferredStyle: .alert)
+        
+        alert.addAction(
+            UIAlertAction(title: "OK", style: .default, handler: { action in
+                self.performSegue(withIdentifier: "toHome", sender: nil)
+            }
+            )
+        )
+        present(alert, animated: true, completion: nil)
+        
+        let AcData = [
+            "ActivityTitle": titleTextField.text!,
+            "ActivityConternt": contentTextView.text!,
+            "ActivityTag": tagListView.textFont
+        ] as [String: Any]
+
+        Firestore.firestore().collection("Activity").document("Activitydocuments").setData(AcData)
     }
 }

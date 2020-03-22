@@ -15,7 +15,7 @@
         <!--Log In View Controller-->
         <scene sceneID="0jV-f4-XkR">
             <objects>
-                <viewController id="ade-hw-eR1" customClass="LogInViewController" customModule="schstu_for_students0315" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ade-hw-eR1" customClass="LogInViewController" customModule="schstu_for_students0315" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xLa-7F-RvL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,7 +82,7 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapSignUpButton" destination="ade-hw-eR1" eventType="touchUpInside" id="FmR-Kh-iYV"/>
-                                    <segue destination="vqP-SC-llx" kind="presentation" id="OVF-0j-TTW"/>
+                                    <segue destination="wZH-WO-nyQ" kind="presentation" id="ecQ-y1-aFz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -105,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1W-d5-mVZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
+            <point key="canvasLocation" x="909" y="92"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="4Wp-aY-VgR">
@@ -277,6 +277,7 @@
                         <segue destination="3bR-lQ-JG7" kind="show" identifier="toNotification" id="sP8-BP-niK"/>
                         <segue destination="8IE-ro-IQ1" kind="show" identifier="toTestDay" id="81O-qc-mug"/>
                         <segue destination="21K-Cr-N9f" kind="presentation" identifier="toInputActivity" id="Qbr-mR-p6R"/>
+                        <segue destination="ade-hw-eR1" kind="presentation" identifier="toLogin" id="vJZ-7A-DKa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCJ-tp-LDi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -529,24 +530,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Za-hR-91h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3740.579710144928" y="91.741071428571431"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="QXz-qd-aWX">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="vqP-SC-llx" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WN1-Mv-mho">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="wZH-WO-nyQ" kind="relationship" relationship="rootViewController" id="zzn-Io-E50"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kvn-ON-3lr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="966.66666666666674" y="91.741071428571431"/>
         </scene>
         <!--Notification View Controller-->
         <scene sceneID="k4H-T8-6B8">
@@ -803,7 +786,12 @@
                                     <navigationItem title="活動記録" id="Ajo-T9-ZIO">
                                         <barButtonItem key="leftBarButtonItem" title="ホームへ" id="vjF-QC-0ie">
                                             <connections>
-                                                <segue destination="wZH-WO-nyQ" kind="presentation" id="sQx-Go-rht"/>
+                                                <segue destination="wZH-WO-nyQ" kind="presentation" identifier="toHome" id="sQx-Go-rht"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="提出" id="cu7-k6-MdV">
+                                            <connections>
+                                                <action selector="saveButton:" destination="21K-Cr-N9f" id="qDp-mV-wX8"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -949,8 +937,7 @@
         <image name="活動記録.png" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dgJ-Is-hF5"/>
-        <segue reference="Na1-IV-3i9"/>
-        <segue reference="YNW-9f-m43"/>
+        <segue reference="ADp-oV-jfy"/>
+        <segue reference="ecQ-y1-aFz"/>
     </inferredMetricsTieBreakers>
 </document>
