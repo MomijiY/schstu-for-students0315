@@ -371,11 +371,11 @@
                     <connections>
                         <outlet property="nameLabel" destination="75e-5c-rMn" id="UKU-Ge-mhQ"/>
                         <outlet property="testDayLabel" destination="HDr-Tb-rGp" id="Agf-ty-XmM"/>
-                        <segue destination="sEM-Sj-sxI" kind="show" identifier="toInputRecord" id="ADp-oV-jfy"/>
                         <segue destination="3bR-lQ-JG7" kind="show" identifier="toNotification" id="sP8-BP-niK"/>
                         <segue destination="8IE-ro-IQ1" kind="show" identifier="toTestDay" id="81O-qc-mug"/>
                         <segue destination="21K-Cr-N9f" kind="presentation" identifier="toInputActivity" id="Qbr-mR-p6R"/>
                         <segue destination="wdi-RY-1c3" kind="presentation" identifier="toLogin" id="z0e-ql-ycD"/>
+                        <segue destination="sEM-Sj-sxI" kind="presentation" identifier="toInputRecord" id="huO-1d-Eek"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCJ-tp-LDi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -387,7 +387,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="InputRecordTableViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qbC-B4-PAo" customClass="InputRecordTableViewController" customModule="schstu_for_students0315" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="LlU-CE-tCe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -952,7 +952,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Inputdetail" rowHeight="100" id="kId-8V-jMc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Inputdetail" rowHeight="100" id="kId-8V-jMc" customClass="InputRecordDetailTableViewCell" customModule="schstu_for_students0315" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kId-8V-jMc" id="F6d-7G-zsF">

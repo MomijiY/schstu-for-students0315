@@ -7,25 +7,52 @@
 //
 
 import UIKit
+import Firebase
 
 class InputRecordDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    var database: Firestore!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subjects.count
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Inputdetail", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: InputRecordDetailTableViewCell.reuseIdentifier, for: indexPath) as! InputRecordDetailTableViewCell
+        database.collection("data").document("example").getDocument{ (snap, error) in
+                if let error = error {
+                    fatalError("\(error)")
+                }
+                guard let data = snap?.data() else { return }
+                print(data["calender"]!)
+                print(data["description"]!)
+                print(data["studyTime"]!)
+                print(data["subject"]!)
+            cell.setupCell(subject: data["subject"] as! String,
+                           description: data["description"] as! String,
+                           studyTime: data["studyTime"] as! String,
+                           calendar: data["calender"] as! String)
+        }
+        
         return cell
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        database = Firestore.firestore()
         
+        database.collection("data").document("example").getDocument{ (snap, error) in
+                if let error = error {
+                    fatalError("\(error)")
+                }
+                guard let data = snap?.data() else { return }
+                print(data["calender"]!)
+                print(data["description"]!)
+                print(data["studyTime"]!)
+                print(data["subject"]!)
+        }
     }
 
 }
