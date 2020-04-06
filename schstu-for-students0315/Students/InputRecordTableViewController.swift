@@ -4,7 +4,7 @@
 //
 //  Created by 吉川椛 on 2020/03/16.
 //  Copyright © 2020 com.litech. All rights reserved.
-//
+// Firebaseはjs2017-の方のプロジェクト
 
 import UIKit
 import Firebase
@@ -31,7 +31,7 @@ class InputRecordTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        AmountsLabel.text = UserDefaults.standard.object(forKey: "pagecounts") as? String
+//        AmountsLabel.text = UserDefaults.standard.object(forKey: "pagecounts") as? String
         
         studyTimePicker.datePickerMode = UIDatePicker.Mode.countDownTimer
         studyTimePicker.timeZone = NSTimeZone.local
@@ -60,6 +60,11 @@ class InputRecordTableViewController: UITableViewController {
         descriptionTextView.inputAccessoryView = toolbar
         
         configureUI()
+    }
+    
+    //追記
+    override func viewWillAppear(_ animated: Bool) {
+        AmountsLabel.text = UserDefaults.standard.object(forKey: "pagecounts") as? String
     }
 
     @objc func studytimedone() {

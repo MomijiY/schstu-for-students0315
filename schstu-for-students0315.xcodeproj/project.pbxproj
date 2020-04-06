@@ -35,6 +35,10 @@
 		793D1A84241F3984003F3427 /* ページ数.png in Resources */ = {isa = PBXBuildFile; fileRef = 793D1A83241F3984003F3427 /* ページ数.png */; };
 		793D1A86241F3D10003F3427 /* InputRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D1A85241F3D10003F3427 /* InputRecordTableViewController.swift */; };
 		793D1A88241F3EEA003F3427 /* SubjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D1A87241F3EEA003F3427 /* SubjectsTableViewCell.swift */; };
+		7976E0AE24343B09001B940F /* 生徒.png in Resources */ = {isa = PBXBuildFile; fileRef = 7976E0AD24343B09001B940F /* 生徒.png */; };
+		7976E0B024343B14001B940F /* 先生.png in Resources */ = {isa = PBXBuildFile; fileRef = 7976E0AF24343B14001B940F /* 先生.png */; };
+		7976E0B224343C5C001B940F /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976E0B124343C5C001B940F /* SelectViewController.swift */; };
+		7976E0B6243449DE001B940F /* TLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976E0B5243449DE001B940F /* TLogInViewController.swift */; };
 		79C40EC5242593D300394835 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79C40EC4242593D300394835 /* GoogleService-Info.plist */; };
 		79C40EC72425B80F00394835 /* InputActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C40EC62425B80F00394835 /* InputActivityViewController.swift */; };
 		79C40ECB242608BB00394835 /* InputRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C40ECA242608BB00394835 /* InputRecordDetailViewController.swift */; };
@@ -42,6 +46,7 @@
 		79C40ED324260A0600394835 /* InputRecordDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C40ED124260A0600394835 /* InputRecordDetailTableViewCell.xib */; };
 		79D77E9D2420ED160047B0F1 /* TestDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D77E9C2420ED160047B0F1 /* TestDayTableViewController.swift */; };
 		79D77E9F24219CDE0047B0F1 /* TestDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D77E9E24219CDE0047B0F1 /* TestDateTextField.swift */; };
+		79E9228B24355C2200B66A3B /* THomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E9228A24355C2200B66A3B /* THomeTableViewController.swift */; };
 		98B772CCA1B5CF710431F80F /* Pods_schstu_for_students0315.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753C775B9FC4A6B5DE326A10 /* Pods_schstu_for_students0315.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +106,10 @@
 		793D1A83241F3984003F3427 /* ページ数.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ページ数.png"; sourceTree = "<group>"; };
 		793D1A85241F3D10003F3427 /* InputRecordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRecordTableViewController.swift; sourceTree = "<group>"; };
 		793D1A87241F3EEA003F3427 /* SubjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsTableViewCell.swift; sourceTree = "<group>"; };
+		7976E0AD24343B09001B940F /* 生徒.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "生徒.png"; sourceTree = "<group>"; };
+		7976E0AF24343B14001B940F /* 先生.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "先生.png"; sourceTree = "<group>"; };
+		7976E0B124343C5C001B940F /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		7976E0B5243449DE001B940F /* TLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogInViewController.swift; sourceTree = "<group>"; };
 		79C40EC4242593D300394835 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		79C40EC62425B80F00394835 /* InputActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputActivityViewController.swift; sourceTree = "<group>"; };
 		79C40ECA242608BB00394835 /* InputRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRecordDetailViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +117,7 @@
 		79C40ED124260A0600394835 /* InputRecordDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputRecordDetailTableViewCell.xib; sourceTree = "<group>"; };
 		79D77E9C2420ED160047B0F1 /* TestDayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDayTableViewController.swift; sourceTree = "<group>"; };
 		79D77E9E24219CDE0047B0F1 /* TestDateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDateTextField.swift; sourceTree = "<group>"; };
+		79E9228A24355C2200B66A3B /* THomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THomeTableViewController.swift; sourceTree = "<group>"; };
 		8C40A0C61D05BE0295A6E4C3 /* Pods-schstu-for-students0315.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-schstu-for-students0315.release.xcconfig"; path = "Target Support Files/Pods-schstu-for-students0315/Pods-schstu-for-students0315.release.xcconfig"; sourceTree = "<group>"; };
 		B39261E3D637C32D2D904790 /* Pods-schstu-for-students0315.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-schstu-for-students0315.debug.xcconfig"; path = "Target Support Files/Pods-schstu-for-students0315/Pods-schstu-for-students0315.debug.xcconfig"; sourceTree = "<group>"; };
 		C23A7B2DF5DD1E97A8F7D4FA /* Pods-schstu-for-students0315Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-schstu-for-students0315Tests.debug.xcconfig"; path = "Target Support Files/Pods-schstu-for-students0315Tests/Pods-schstu-for-students0315Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -178,21 +188,11 @@
 		790776FC241E4C77005402AB /* schstu-for-students0315 */ = {
 			isa = PBXGroup;
 			children = (
+				790776FD241E4C77005402AB /* AppDelegate.swift */,
+				7976E0B4243449C6001B940F /* Teachers */,
+				7976E0B3243449B4001B940F /* Students */,
 				793D1A74241F252D003F3427 /* Image */,
 				79077737241E57C0005402AB /* Font */,
-				790776FD241E4C77005402AB /* AppDelegate.swift */,
-				79077734241E4F45005402AB /* LogInViewController.swift */,
-				79077738241E5A98005402AB /* HomeViewController.swift */,
-				793D1A85241F3D10003F3427 /* InputRecordTableViewController.swift */,
-				79C40ECA242608BB00394835 /* InputRecordDetailViewController.swift */,
-				790B5EAF241F7DC10001F5EB /* AmountsTableViewController.swift */,
-				7900D237242099380034880A /* NotificationViewController.swift */,
-				7900440024222861007B593D /* NotificationDetailViewController.swift */,
-				79D77E9C2420ED160047B0F1 /* TestDayTableViewController.swift */,
-				79D77E9E24219CDE0047B0F1 /* TestDateTextField.swift */,
-				79C40EC62425B80F00394835 /* InputActivityViewController.swift */,
-				7900440224222987007B593D /* NotificationDetail.storyboard */,
-				793D1A89241F3EF2003F3427 /* Cell */,
 				79077706241E4C79005402AB /* Assets.xcassets */,
 				79077730241E4D4F005402AB /* Main.storyboard */,
 				7907770B241E4C79005402AB /* LaunchScreen.storyboard */,
@@ -250,6 +250,8 @@
 				793D1A76241F253B003F3427 /* テスト日程.png */,
 				793D1A78241F253B003F3427 /* 学習記録.png */,
 				793D1A7D241F25B6003F3427 /* 活動記録.png */,
+				7976E0AD24343B09001B940F /* 生徒.png */,
+				7976E0AF24343B14001B940F /* 先生.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -264,6 +266,35 @@
 				790043FD24222030007B593D /* NotificationTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		7976E0B3243449B4001B940F /* Students */ = {
+			isa = PBXGroup;
+			children = (
+				7976E0B124343C5C001B940F /* SelectViewController.swift */,
+				79077734241E4F45005402AB /* LogInViewController.swift */,
+				79077738241E5A98005402AB /* HomeViewController.swift */,
+				793D1A85241F3D10003F3427 /* InputRecordTableViewController.swift */,
+				79C40ECA242608BB00394835 /* InputRecordDetailViewController.swift */,
+				790B5EAF241F7DC10001F5EB /* AmountsTableViewController.swift */,
+				7900D237242099380034880A /* NotificationViewController.swift */,
+				7900440024222861007B593D /* NotificationDetailViewController.swift */,
+				79D77E9C2420ED160047B0F1 /* TestDayTableViewController.swift */,
+				79D77E9E24219CDE0047B0F1 /* TestDateTextField.swift */,
+				79C40EC62425B80F00394835 /* InputActivityViewController.swift */,
+				7900440224222987007B593D /* NotificationDetail.storyboard */,
+				793D1A89241F3EF2003F3427 /* Cell */,
+			);
+			path = Students;
+			sourceTree = "<group>";
+		};
+		7976E0B4243449C6001B940F /* Teachers */ = {
+			isa = PBXGroup;
+			children = (
+				7976E0B5243449DE001B940F /* TLogInViewController.swift */,
+				79E9228A24355C2200B66A3B /* THomeTableViewController.swift */,
+			);
+			path = Teachers;
 			sourceTree = "<group>";
 		};
 		DAC66FC00387D86E16EA0F57 /* Pods */ = {
@@ -390,6 +421,7 @@
 			files = (
 				79C40EC5242593D300394835 /* GoogleService-Info.plist in Resources */,
 				793D1A82241F385E003F3427 /* 勉強時間.png in Resources */,
+				7976E0B024343B14001B940F /* 先生.png in Resources */,
 				793D1A7B241F253B003F3427 /* お知らせ無し.png in Resources */,
 				793D1A80241F37D6003F3427 /* Photo.png in Resources */,
 				7907770D241E4C79005402AB /* LaunchScreen.storyboard in Resources */,
@@ -402,6 +434,7 @@
 				793D1A7E241F25B6003F3427 /* 活動記録.png in Resources */,
 				793D1A79241F253B003F3427 /* お知らせ有り.png in Resources */,
 				793D1A7C241F253B003F3427 /* 学習記録.png in Resources */,
+				7976E0AE24343B09001B940F /* 生徒.png in Resources */,
 				790043FF24222030007B593D /* NotificationTableViewCell.xib in Resources */,
 				79077731241E4D4F005402AB /* Main.storyboard in Resources */,
 			);
@@ -535,13 +568,16 @@
 				790776FE241E4C77005402AB /* AppDelegate.swift in Sources */,
 				7900440124222861007B593D /* NotificationDetailViewController.swift in Sources */,
 				79C40ED224260A0600394835 /* InputRecordDetailTableViewCell.swift in Sources */,
+				7976E0B224343C5C001B940F /* SelectViewController.swift in Sources */,
 				79077703241E4C77005402AB /* schstu_for_students0315.xcdatamodeld in Sources */,
 				7900D238242099380034880A /* NotificationViewController.swift in Sources */,
+				7976E0B6243449DE001B940F /* TLogInViewController.swift in Sources */,
 				79077735241E4F45005402AB /* LogInViewController.swift in Sources */,
 				79D77E9F24219CDE0047B0F1 /* TestDateTextField.swift in Sources */,
 				793D1A86241F3D10003F3427 /* InputRecordTableViewController.swift in Sources */,
 				793D1A88241F3EEA003F3427 /* SubjectsTableViewCell.swift in Sources */,
 				790B5EB0241F7DC10001F5EB /* AmountsTableViewController.swift in Sources */,
+				79E9228B24355C2200B66A3B /* THomeTableViewController.swift in Sources */,
 				79077739241E5A98005402AB /* HomeViewController.swift in Sources */,
 				790043FE24222030007B593D /* NotificationTableViewCell.swift in Sources */,
 				79C40EC72425B80F00394835 /* InputActivityViewController.swift in Sources */,

@@ -131,7 +131,7 @@ class InputActivityViewController: UIViewController, TagListViewDelegate, UIText
         let AcData = [
             "ActivityTitle": titleTextField.text!,
             "ActivityConternt": contentTextView.text!,
-            "ActivityTag": tagListView.textFont
+//            "ActivityTag": tagListView.textColor
         ] as [String: Any]
 
         Firestore.firestore().collection("Activity").document("Activitydocuments").setData(AcData)

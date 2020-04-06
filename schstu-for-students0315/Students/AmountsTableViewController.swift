@@ -26,6 +26,13 @@ class AmountsTableViewController: UITableViewController, UIPickerViewDelegate, U
         AmoutntsPickerView.dataSource = self
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //下にスライドして画面を閉じるタイプの画面遷移の時はこれを書かないと前のViewが更新されません
+        presentingViewController?.beginAppearanceTransition(true, animated: animated)
+        presentingViewController?.endAppearanceTransition()
+    }
+    
     // UIPickerViewの列の数
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
