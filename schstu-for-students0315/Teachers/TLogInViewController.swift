@@ -15,6 +15,7 @@ class TLogInViewController: UIViewController, UITextFieldDelegate {
      var acount: FirebaseApp!
     
     var auth: Auth?
+    var database: Firestore!
     
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var emailTextField: UITextField!
@@ -26,6 +27,12 @@ class TLogInViewController: UIViewController, UITextFieldDelegate {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         let name = nameTextField.text ?? ""
+        
+        let teacherdata = [
+            "teacherName": nameTextField.text!,
+            "teacherPass": passwordTextField.text!,
+            "teacherMail": emailTextField.text!
+        ] as [String: Any]
         
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
             guard let self = self else { return }
@@ -42,6 +49,7 @@ class TLogInViewController: UIViewController, UITextFieldDelegate {
                                 // サインアップ完了のフラグを保持する
                                 UserDefaults.standard.set(true, forKey: "appSignUpStatusKey")
                                 UserDefaults.standard.synchronize()
+                                Firestore.firestore().collection("class").document("teachers").setData(teacherdata)
                             }
                             self.showErrorIfNeeded(error)
                         }
@@ -54,7 +62,7 @@ class TLogInViewController: UIViewController, UITextFieldDelegate {
         // サインアップ完了のフラグを保持する
         UserDefaults.standard.set(true, forKey: "appSignUpStatusKey")
         // ユーザー名を保存する
-        UserDefaults.standard.set(name, forKey: "userNameKey")
+        UserDefaults.standard.set(nameTextField.text, forKey: "userNameKey")
         UserDefaults.standard.synchronize()
         if (email == "" || password == "" || name == "") {
             let message = "全てのフォームに記入して下さい。"
@@ -79,6 +87,7 @@ class TLogInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        database = Firestore.firestore()
         auth = Auth.auth()
         
         self.navigationController?.navigationBar.isHidden = true

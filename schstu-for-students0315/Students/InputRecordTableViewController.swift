@@ -31,6 +31,7 @@ class InputRecordTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        database = Firestore.firestore()
 //        AmountsLabel.text = UserDefaults.standard.object(forKey: "pagecounts") as? String
         
         studyTimePicker.datePickerMode = UIDatePicker.Mode.countDownTimer
@@ -86,6 +87,13 @@ class InputRecordTableViewController: UITableViewController {
 
 extension InputRecordTableViewController {
     func saveRecord() {
+//
+//        let HV = self.storyboard?.instantiateViewController(withIdentifier: "makegroup") as! TmakegroupViewController //error
+//        let groupName = HV.groupNameTextField.text
+//        let collection = database.collection(groupName!)
+        
+        let collection = database.collection(classname)
+        
         studyTime = studyTextField.text!
         calender = calenderTextField.text!
         inputamounts = AmountsLabel.text!
@@ -114,7 +122,7 @@ extension InputRecordTableViewController {
             "subject": subjectsTextField.text!
         ] as [String: Any]
 
-        Firestore.firestore().collection("data").document("example").setData(studyData)
+        collection.document("example").setData(studyData)
     }
 }
 

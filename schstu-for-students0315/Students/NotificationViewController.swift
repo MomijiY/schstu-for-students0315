@@ -24,8 +24,11 @@ class NotificationViewController: UIViewController {
         super.viewDidLoad()
         notificationButton.layer.cornerRadius = 10
         commentButton.layer.cornerRadius = 10
+        let HV = self.storyboard?.instantiateViewController(withIdentifier: "makegroup") as! TmakegroupViewController
+        let groupName = HV.groupNameTextField.text
+        let collection = database.collection(groupName!)
         
-        database.collection("teacher_data").document("noti").getDocument { (snap, error) in
+        collection.document("noti").getDocument { (snap, error) in
             if let error = error {
                 fatalError("\(error)")
                 

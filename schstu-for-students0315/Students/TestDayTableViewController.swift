@@ -16,8 +16,11 @@ class TestDayTableViewController: UITableViewController {
     @IBOutlet weak var goalTextField2: UITextField!
     @IBOutlet weak var goalTextField3: UITextField!
 
+    var database: Firestore!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        database = Firestore.firestore()
         if UserDefaults.standard.object(forKey: "dateTextField") as? String == nil {
             dateTextField.text = ""
         } else {
@@ -61,6 +64,11 @@ class TestDayTableViewController: UITableViewController {
 
 extension TestDayTableViewController {
     func saveTestDay() {
+        
+        let HV = self.storyboard?.instantiateViewController(withIdentifier: "makegroup") as! TmakegroupViewController
+        let groupName = HV.groupNameTextField.text
+        let collection = database.collection(groupName!)
+        
         UserDefaults.standard.set(dateTextField.text, forKey: "dateTextField")
         UserDefaults.standard.set(goalTextField1.text, forKey: "goalTextField1")
         UserDefaults.standard.set(goalTextField2.text, forKey: "goalTextField2")
@@ -79,7 +87,7 @@ extension TestDayTableViewController {
             "goal2": goalTextField2.text!,
             "goal3": goalTextField3.text!
         ] as [String: Any]
-        Firestore.firestore().collection("Test").document("testdocuments").setData(testData)
+        collection.document("testdocuments").setData(testData)
     }
 }
 

@@ -20,7 +20,11 @@ class InputRecordDetailViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: InputRecordDetailTableViewCell.reuseIdentifier, for: indexPath) as! InputRecordDetailTableViewCell
-        database.collection("data").document("example").getDocument{ (snap, error) in
+        let HV = self.storyboard?.instantiateViewController(withIdentifier: "makegroup") as! TmakegroupViewController
+        let groupName = HV.groupNameTextField.text
+        let collection = database.collection(groupName!)
+        
+        collection.document("example").getDocument{ (snap, error) in
                 if let error = error {
                     fatalError("\(error)")
                 }
@@ -43,7 +47,7 @@ class InputRecordDetailViewController: UIViewController, UITableViewDelegate, UI
         super.viewDidLoad()
         database = Firestore.firestore()
         
-        database.collection("data").document("example").getDocument{ (snap, error) in
+        Firestore.firestore().collection("data").document("example").getDocument{ (snap, error) in
                 if let error = error {
                     fatalError("\(error)")
                 }

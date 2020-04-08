@@ -37,7 +37,7 @@ class InputRecordDetailTableViewCell: UITableViewCell {
     }
     
     func setupCell(subject: String, description: String, studyTime: String, calendar: String) {
-        database.collection("data").document("example").getDocument{ (snap, error) in
+        Firestore.firestore().collection("data").document("example").getDocument{ (snap, error) in
                 if let error = error {
                     fatalError("\(error)")
                 }

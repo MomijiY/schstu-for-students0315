@@ -39,6 +39,8 @@
 		7976E0B024343B14001B940F /* 先生.png in Resources */ = {isa = PBXBuildFile; fileRef = 7976E0AF24343B14001B940F /* 先生.png */; };
 		7976E0B224343C5C001B940F /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976E0B124343C5C001B940F /* SelectViewController.swift */; };
 		7976E0B6243449DE001B940F /* TLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976E0B5243449DE001B940F /* TLogInViewController.swift */; };
+		797801DE243BFB4100B1097B /* TmakegroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797801DD243BFB4100B1097B /* TmakegroupViewController.swift */; };
+		797801E0243BFDDD00B1097B /* SEnterGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797801DF243BFDDD00B1097B /* SEnterGroupViewController.swift */; };
 		79C40EC5242593D300394835 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79C40EC4242593D300394835 /* GoogleService-Info.plist */; };
 		79C40EC72425B80F00394835 /* InputActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C40EC62425B80F00394835 /* InputActivityViewController.swift */; };
 		79C40ECB242608BB00394835 /* InputRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C40ECA242608BB00394835 /* InputRecordDetailViewController.swift */; };
@@ -110,6 +112,8 @@
 		7976E0AF24343B14001B940F /* 先生.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "先生.png"; sourceTree = "<group>"; };
 		7976E0B124343C5C001B940F /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		7976E0B5243449DE001B940F /* TLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogInViewController.swift; sourceTree = "<group>"; };
+		797801DD243BFB4100B1097B /* TmakegroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmakegroupViewController.swift; sourceTree = "<group>"; };
+		797801DF243BFDDD00B1097B /* SEnterGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEnterGroupViewController.swift; sourceTree = "<group>"; };
 		79C40EC4242593D300394835 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		79C40EC62425B80F00394835 /* InputActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputActivityViewController.swift; sourceTree = "<group>"; };
 		79C40ECA242608BB00394835 /* InputRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRecordDetailViewController.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 			children = (
 				7976E0B124343C5C001B940F /* SelectViewController.swift */,
 				79077734241E4F45005402AB /* LogInViewController.swift */,
+				797801DF243BFDDD00B1097B /* SEnterGroupViewController.swift */,
 				79077738241E5A98005402AB /* HomeViewController.swift */,
 				793D1A85241F3D10003F3427 /* InputRecordTableViewController.swift */,
 				79C40ECA242608BB00394835 /* InputRecordDetailViewController.swift */,
@@ -291,6 +296,7 @@
 		7976E0B4243449C6001B940F /* Teachers */ = {
 			isa = PBXGroup;
 			children = (
+				797801DD243BFB4100B1097B /* TmakegroupViewController.swift */,
 				7976E0B5243449DE001B940F /* TLogInViewController.swift */,
 				79E9228A24355C2200B66A3B /* THomeTableViewController.swift */,
 			);
@@ -574,6 +580,8 @@
 				7976E0B6243449DE001B940F /* TLogInViewController.swift in Sources */,
 				79077735241E4F45005402AB /* LogInViewController.swift in Sources */,
 				79D77E9F24219CDE0047B0F1 /* TestDateTextField.swift in Sources */,
+				797801DE243BFB4100B1097B /* TmakegroupViewController.swift in Sources */,
+				797801E0243BFDDD00B1097B /* SEnterGroupViewController.swift in Sources */,
 				793D1A86241F3D10003F3427 /* InputRecordTableViewController.swift in Sources */,
 				793D1A88241F3EEA003F3427 /* SubjectsTableViewCell.swift in Sources */,
 				790B5EB0241F7DC10001F5EB /* AmountsTableViewController.swift in Sources */,

@@ -15,13 +15,14 @@ class InputActivityViewController: UIViewController, TagListViewDelegate, UIText
     let tagListView = TagListView()
     
     var placeholderLabel : UILabel!
-
+    var database: Firestore!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var tagTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        database = Firestore.firestore()
         contentTextView.delegate = self
         tagTextField.delegate = self
         placeholderLabel = UILabel()
@@ -118,6 +119,10 @@ class InputActivityViewController: UIViewController, TagListViewDelegate, UIText
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         
+//        let HV = self.storyboard?.instantiateViewController(withIdentifier: "makegroup") as! TmakegroupViewController
+//        let groupName = HV.groupNameTextField.text
+        let collection = database.collection(classname)
+        
         let alert: UIAlertController = UIAlertController(title: "OK", message: "記録の保存が完了しました", preferredStyle: .alert)
         
         alert.addAction(
@@ -134,6 +139,6 @@ class InputActivityViewController: UIViewController, TagListViewDelegate, UIText
 //            "ActivityTag": tagListView.textColor
         ] as [String: Any]
 
-        Firestore.firestore().collection("Activity").document("Activitydocuments").setData(AcData)
+        collection.document("Activitydocuments").setData(AcData)
     }
 }
