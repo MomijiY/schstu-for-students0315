@@ -20,11 +20,13 @@ class InputRecordDetailViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: InputRecordDetailTableViewCell.reuseIdentifier, for: indexPath) as! InputRecordDetailTableViewCell
-        let HV = self.storyboard?.instantiateViewController(withIdentifier: "makegroup") as! TmakegroupViewController
-        let groupName = HV.groupNameTextField.text
-        let collection = database.collection(groupName!)
+        tableView.register(InputRecordDetailTableViewCell.self, forCellReuseIdentifier: NSStringFromClass(InputRecordDetailTableViewCell.self))
+
+//        let HV = self.storyboard?.instantiateViewController(withIdentifier: "makegroup") as! TmakegroupViewController
+//        let groupName = HV.groupNameTextField.text
+//        let collection = database.collection(groupName!)
         
-        collection.document("example").getDocument{ (snap, error) in
+        Firestore.firestore().collection("data").document("example").getDocument{ (snap, error) in
                 if let error = error {
                     fatalError("\(error)")
                 }
@@ -46,16 +48,16 @@ class InputRecordDetailViewController: UIViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         database = Firestore.firestore()
-        
+        configureTableView()
         Firestore.firestore().collection("data").document("example").getDocument{ (snap, error) in
                 if let error = error {
                     fatalError("\(error)")
                 }
                 guard let data = snap?.data() else { return }
-                print(data["calender"]!)
-                print(data["description"]!)
-                print(data["studyTime"]!)
-                print(data["subject"]!)
+//                print(data["calender"]!)
+//                print(data["description"]!)
+//                print(data["studyTime"]!)
+//                print(data["subject"]!)
         }
     }
 
@@ -65,7 +67,7 @@ extension InputRecordDetailViewController {
     func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.tableFooterView = UIView()
+//        tableView.tableFooterView = UIView()
 //        tableView.rowHeight = InputRecordDetailTableViewCell.rowHeight
 //        tableView.register(InputRecordDetailTableViewCell.nib, forCellReuseIdentifier: InputRecordDetailTableViewCell.reuseIdentifier)
 
