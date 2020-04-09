@@ -25,6 +25,7 @@
 		79077735241E4F45005402AB /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79077734241E4F45005402AB /* LogInViewController.swift */; };
 		79077739241E5A98005402AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79077738241E5A98005402AB /* HomeViewController.swift */; };
 		790B5EB0241F7DC10001F5EB /* AmountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790B5EAF241F7DC10001F5EB /* AmountsTableViewController.swift */; };
+		7933054A243DF0FA00C6141D /* SeeRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79330549243DF0FA00C6141D /* SeeRecordViewController.swift */; };
 		793D1A79241F253B003F3427 /* お知らせ有り.png in Resources */ = {isa = PBXBuildFile; fileRef = 793D1A75241F253B003F3427 /* お知らせ有り.png */; };
 		793D1A7A241F253B003F3427 /* テスト日程.png in Resources */ = {isa = PBXBuildFile; fileRef = 793D1A76241F253B003F3427 /* テスト日程.png */; };
 		793D1A7B241F253B003F3427 /* お知らせ無し.png in Resources */ = {isa = PBXBuildFile; fileRef = 793D1A77241F253B003F3427 /* お知らせ無し.png */; };
@@ -98,6 +99,7 @@
 		7907773B241F1CAA005402AB /* Mamelon.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mamelon.otf; sourceTree = "<group>"; };
 		7907773C241F1F00005402AB /* mini-wakuwaku-maru.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mini-wakuwaku-maru.otf"; sourceTree = "<group>"; };
 		790B5EAF241F7DC10001F5EB /* AmountsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountsTableViewController.swift; sourceTree = "<group>"; };
+		79330549243DF0FA00C6141D /* SeeRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeRecordViewController.swift; sourceTree = "<group>"; };
 		793D1A75241F253B003F3427 /* お知らせ有り.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "お知らせ有り.png"; sourceTree = "<group>"; };
 		793D1A76241F253B003F3427 /* テスト日程.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "テスト日程.png"; sourceTree = "<group>"; };
 		793D1A77241F253B003F3427 /* お知らせ無し.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "お知らせ無し.png"; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				79077738241E5A98005402AB /* HomeViewController.swift */,
 				793D1A85241F3D10003F3427 /* InputRecordTableViewController.swift */,
 				79C40ECA242608BB00394835 /* InputRecordDetailViewController.swift */,
+				79330549243DF0FA00C6141D /* SeeRecordViewController.swift */,
 				790B5EAF241F7DC10001F5EB /* AmountsTableViewController.swift */,
 				7900D237242099380034880A /* NotificationViewController.swift */,
 				7900440024222861007B593D /* NotificationDetailViewController.swift */,
@@ -585,6 +588,7 @@
 				793D1A86241F3D10003F3427 /* InputRecordTableViewController.swift in Sources */,
 				793D1A88241F3EEA003F3427 /* SubjectsTableViewCell.swift in Sources */,
 				790B5EB0241F7DC10001F5EB /* AmountsTableViewController.swift in Sources */,
+				7933054A243DF0FA00C6141D /* SeeRecordViewController.swift in Sources */,
 				79E9228B24355C2200B66A3B /* THomeTableViewController.swift in Sources */,
 				79077739241E5A98005402AB /* HomeViewController.swift in Sources */,
 				790043FE24222030007B593D /* NotificationTableViewCell.swift in Sources */,

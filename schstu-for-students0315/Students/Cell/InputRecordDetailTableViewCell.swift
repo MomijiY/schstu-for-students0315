@@ -18,7 +18,7 @@ class InputRecordDetailTableViewCell: UITableViewCell {
     @IBOutlet private weak var calenderLabel: UILabel!
     
     var database: Firestore!
-    static let reuseIdentifier = "InputRecordDetailTableViewCell"
+    static let reuseIdentifier = "Inputdetail"
     static let rowHeight: CGFloat = 100
     // 正しいファイルを読み込むように引数nibNameに渡す文字列を変更.
     static var nib: UINib {
@@ -36,7 +36,7 @@ class InputRecordDetailTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupCell(subject: String, description: String, studyTime: String, calendar: String) {
+    func setupCell(subject: String, description: String, studyTime: String, calendar: String, amounts: String) {
         Firestore.firestore().collection("data").document("example").getDocument{ (snap, error) in
                 if let error = error {
                     fatalError("\(error)")
@@ -46,10 +46,13 @@ class InputRecordDetailTableViewCell: UITableViewCell {
                 print(data["description"]!)
                 print(data["studyTime"]!)
                 print(data["subject"]!)
-            self.subjectLabel.text = data["subjects"] as? String
+                print(data["amounts"]!)
+                print(self.subjectLabel.text!)
+            self.subjectLabel.text = data["subject"] as? String
             self.descriptionLabel.text = data["description"] as? String
             self.studyTimeLabel.text = data["studyTime"] as? String
             self.calenderLabel.text = data["calender"] as? String
+            self.amountsLabel.text = data["amounts"] as? String
         }
 //        subjectLabel.text = subjects
 //        descriptionLabel.text = inputdescription

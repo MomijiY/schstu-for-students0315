@@ -45,20 +45,30 @@ class InputRecordTableViewController: UITableViewController {
         calenderTextField.inputView = calenderPicker
         
         // 決定バーの生成
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let subtoolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let subspacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let subdoneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(subjectdone))
+        subtoolbar.setItems([subspacelItem, subdoneItem], animated: true)
+        
+        let stoolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
         let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(studytimedone))
-        toolbar.setItems([spacelItem, doneItem], animated: true)
+        let sdoneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(studytimedone))
+        stoolbar.setItems([spacelItem, sdoneItem], animated: true)
         
         let ctoolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
         let cspacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let cdoneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(calenderdone))
         ctoolbar.setItems([cspacelItem, cdoneItem], animated: true)
         
-        subjectsTextField.inputAccessoryView = toolbar
-        studyTextField.inputAccessoryView = toolbar
+        let dtoolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let dspacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let ddoneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(descriptiondone))
+        dtoolbar.setItems([dspacelItem, ddoneItem], animated: true)
+        
+        subjectsTextField.inputAccessoryView = subtoolbar
+        studyTextField.inputAccessoryView = stoolbar
         calenderTextField.inputAccessoryView = ctoolbar
-        descriptionTextView.inputAccessoryView = toolbar
+        descriptionTextView.inputAccessoryView = dtoolbar
         
         configureUI()
     }
@@ -67,11 +77,13 @@ class InputRecordTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         AmountsLabel.text = UserDefaults.standard.object(forKey: "pagecounts") as? String
     }
+    
+    @objc func subjectdone() {
+        subjectsTextField.endEditing(true)
+    }
 
     @objc func studytimedone() {
-        subjectsTextField.endEditing(true)
         studyTextField.endEditing(true)
-        descriptionTextView.endEditing(true)
         let formatter = DateFormatter()
         formatter.dateFormat = "h時間m分"
         studyTextField.text = "\(formatter.string(from: studyTimePicker.date))"
@@ -82,6 +94,10 @@ class InputRecordTableViewController: UITableViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "M月d日h時m分"
         calenderTextField.text = "\(formatter.string(from: calenderPicker.date))"
+    }
+    
+    @objc func descriptiondone() {
+        descriptionTextView.endEditing(true)
     }
 }
 
@@ -106,20 +122,43 @@ extension InputRecordTableViewController {
         UserDefaults.standard.set(amounts, forKey: "amounts")
         UserDefaults.standard.set(inputdescription, forKey: "description")
         
-        let alert: UIAlertController = UIAlertController(title: "OK", message: "記録の保存が完了しました", preferredStyle: .alert)
+        let alert: UIAlertController = UIAlertController(title: "記録の保存が完了しました。",
+                                                         message: "", preferredStyle: .alert)
+        let spaceAlertS: UIAlertController = UIAlertController(title: "教科名を記入してください。", message: "", preferredStyle: .alert)
         
-        alert.addAction(
-            UIAlertAction(title: "OK", style: .default, handler: { action in
-                self.performSegue(withIdentifier: "toHome", sender: nil)
-            }
+        let spaceAlertST: UIAlertController = UIAlertController(title: "勉強時間を記入してください。", message: "", preferredStyle: .alert)
+        let spaceAlertC: UIAlertController = UIAlertController(title: "日時を記入してください。", message: "", preferredStyle: .alert)
+        
+        if subjectsTextField.text == "" {
+            spaceAlertS.addAction(
+                UIAlertAction(title: "OK", style: .default, handler: nil)
             )
-        )
-        present(alert, animated: true, completion: nil)
+            present(spaceAlertS, animated: true, completion: nil)
+        } else if calenderTextField.text == "" {
+            spaceAlertC.addAction(
+                UIAlertAction(title: "OK", style: .default, handler: nil)
+            )
+            present(spaceAlertC, animated: true, completion: nil)
+        } else if studyTextField.text == "" {
+            spaceAlertST.addAction(
+                UIAlertAction(title: "OK", style: .default, handler: nil)
+            )
+            present(spaceAlertST, animated: true, completion: nil)
+        } else {
+            alert.addAction(
+                UIAlertAction(title: "OK", style: .default, handler: { action in
+                    self.performSegue(withIdentifier: "toHome", sender: nil)
+                }
+                )
+            )
+            present(alert, animated: true, completion: nil)
+        }
         let studyData = [
             "studyTime": studyTextField.text!,
             "calender": calenderTextField.text!,
             "description": descriptionTextView.text!,
-            "subject": subjectsTextField.text!
+            "subject": subjectsTextField.text!,
+            "amounts": AmountsLabel.text!
         ] as [String: Any]
 
         collection.document("example").setData(studyData)

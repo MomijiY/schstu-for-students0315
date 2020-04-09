@@ -14,6 +14,12 @@ class InputRecordDetailViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var tableView: UITableView!
     var database: Firestore!
     
+    var selectedSubject: String = ""
+    var selectedST: String = ""
+    var selectedCalendar: String = ""
+    var selectedAmounts: String = ""
+    var selectedDescription: String = ""
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
@@ -35,15 +41,45 @@ class InputRecordDetailViewController: UIViewController, UITableViewDelegate, UI
                 print(data["description"]!)
                 print(data["studyTime"]!)
                 print(data["subject"]!)
+                print(data["amounts"]!)
             cell.setupCell(subject: data["subject"] as! String,
                            description: data["description"] as! String,
                            studyTime: data["studyTime"] as! String,
-                           calendar: data["calender"] as! String)
+                           calendar: data["calender"] as! String,
+                           amounts: data["amounts"] as! String)
         }
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Firestore.firestore().collection("data").document("example").getDocument{ (snap, error) in
+                if let error = error {
+                    fatalError("\(error)")
+                }
+                guard let data = snap?.data() else { return }
+            self.selectedSubject = data["subject"] as! String
+            self.selectedST = data["studyTime"] as! String
+            self.selectedAmounts = data["amounts"] as! String
+            self.selectedCalendar = data["calender"] as! String
+            self.selectedDescription = data["description"] as! String
+            
+            if self.selectedSubject != nil {
+                self.performSegue(withIdentifier: "toSeeRecordDetail",sender: nil)
+            }
+        }
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+//           if (segue.identifier == "toDetailSubjects") {
+//            let detailVC: SeeRecordViewController = (segue.destination as? SeeRecordViewController)!
+//            detailVC.subjectLabel.text = selectedSubject
+//            detailVC.studyTimeLanel.text = selectedST
+//            detailVC.amountsLabel.text = selectedAmounts
+//            detailVC.calendarLabel.te/Users/momiji/Downloads/schstu-for-students0315/schstu-for-students0315/Students/SelectViewController.swiftxt = selectedCalendar
+//            detailVC.descriptioinTextView.text = selectedDescription
+//           }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +90,10 @@ class InputRecordDetailViewController: UIViewController, UITableViewDelegate, UI
                     fatalError("\(error)")
                 }
                 guard let data = snap?.data() else { return }
-//                print(data["calender"]!)
-//                print(data["description"]!)
-//                print(data["studyTime"]!)
-//                print(data["subject"]!)
+                print(data["calender"]!)
+                print(data["description"]!)
+                print(data["studyTime"]!)
+                print(data["subject"]!)
         }
     }
 
